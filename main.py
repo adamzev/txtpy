@@ -3,6 +3,8 @@ import os
 from glob import glob
 from pathlib import Path
 
+import pyperclip
+
 
 def print_file(filename):
     home = Path.home()
@@ -21,7 +23,9 @@ def print_file(filename):
     with open(file) as f:
         read_data = f.read()
     read_data = read_data.rstrip()
-    print(read_data)
+    backup_old_clipboard = pyperclip.paste()
+    pyperclip.copy(read_data)
+    print(backup_old_clipboard)
 
 
 if __name__ == "__main__":
