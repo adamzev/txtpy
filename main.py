@@ -1,7 +1,8 @@
-from glob import glob
-import os
 import argparse
+import os
+from glob import glob
 from pathlib import Path
+
 
 def print_file(filename):
     home = Path.home()
@@ -15,7 +16,6 @@ def print_file(filename):
         )
     os.chdir(main_dir)
 
-    # change to user selected file
     file = sorted(glob(filename + '*'))[0]
 
     with open(file) as f:
