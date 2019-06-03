@@ -1,21 +1,32 @@
 # Project Building Steps
+## Texpander's Pseudocode
+
+window = get_the_current_window()
+pid = get_the_process_id_of_current_window()
+create_texpander_directory_if_it_doesnt_exist()
+enable_matching_subdirectories()
+find_files()
+use_zenity_to_list_and_select_files()
+    clipboard = current_clipboard_value()
+    put_text_in_primary_buffer()
+    put_text_in_clipboard_buffer()  # for apps like Firefox
+    paste_into_current_window()
+    restore_value_of_clipboard()
+error_if_selected_file_not_found()
+
 ## Requirements
 
-1.  read text files from a directory.
-2.  run based on a keyboard shortcut
-3.  paste text into any program including the terminal.
-4.  have a GUI for selecting text based on a shortcut
-5.  have a GUI for editing text
-6.  have a GUI for adding text
-7.  if a shortcut is mentioned in mustache notation {{ var_name }} that file will also be retrieved.
-8.  Avoid recurrsion/infinite loops.
+*  run based on a keyboard shortcut
+*  paste text into any program including the terminal.
+*  have a GUI for selecting text based on a shortcut
 
-## Features
-
-1.  Override the default directory based on an enviromental variable
+## Features and Enhancements
+*  have a GUI for editing text
+*  have a GUI for adding text
+*  if a shortcut is mentioned in mustache notation {{ var_name }} that file will also be retrieved.
+   *  Avoid recurrsion/infinite loops.
+*  Override the default directory based on an environmental variable
 
 
-## Steps
-1. Read the first file in the .texpander directory and copy its contents to the clipboard
-2. Do the above when hitting a shortcut.
-3. Have a GUI that lists the files in that directory.
+## useful libraries
+*  https://github.com/poulp/zenipy
